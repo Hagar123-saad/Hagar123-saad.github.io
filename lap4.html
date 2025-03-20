@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordering Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .order-details {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Our Store!</h1>
+    <div id="greeting"></div>
+    <div class="order-details" id="orderDetails">
+        <!-- Order details will be displayed here -->
+    </div>
+
+    <script>
+        // Step 1: Welcome the customer with an alert
+        alert("Welcome to our store!");
+
+        // Step 2: Ask the customer for their name
+        const name = prompt("Please enter your name:");
+
+        // Step 3: Ask the customer what item they want to order
+        const item = prompt("What item would you like to order?");
+
+        // Step 4: Ask the customer how many items they want
+        let quantity = prompt("How many would you like to order? (1-99)");
+
+        // Step 5: Check if the quantity is valid (between 1 and 99)
+        while (quantity < 1 || quantity > 99 || isNaN(quantity)) {
+            quantity = prompt("Please enter a number between 1 and 99:");
+        }
+
+        // Step 6: Greet the customer based on the time of day
+        const now = new Date(); // Get the current date and time
+        const hour = now.getHours(); // Get the current hour (0-23)
+        let greeting;
+
+        if (hour < 12) {
+            greeting = "Good Morning";
+        } else if (hour < 18) {
+            greeting = "Good Afternoon";
+        } else {
+            greeting = "Good Evening";
+        }
+
+        // Step 7: Display the greeting on the webpage
+        document.getElementById("greeting").innerHTML = `<h2>${greeting} ${name}, Thank you for Ordering!</h2>`;
+
+        // Step 8: Display the order details on the webpage
+        const orderDetails = document.getElementById("orderDetails");
+        orderDetails.innerHTML = `
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Item Ordered:</strong> ${item}</p>
+            <p><strong>Quantity:</strong> ${quantity}</p>
+        `;
+
+        // Step 9: Calculate the arrival date (7 days from now)
+        const arrivalDate = new Date();
+        arrivalDate.setDate(now.getDate() + 7); // Add 7 days to the current date
+
+        // Step 10: Format the arrival date to look nice (e.g., "March 26, 2025")
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedArrivalDate = arrivalDate.toLocaleDateString('en-US', options);
+
+        // Step 11: Display the arrival date on the webpage
+        orderDetails.innerHTML += `<p><strong>Expected Arrival Date:</strong> ${formattedArrivalDate}</p>`;
+    </script>
+</body>
+</html>
