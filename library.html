@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harry Potter Library</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body {
+      background: url('https://images7.alphacoders.com/592/592699.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+    .book-card {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      color: #fff;
+      text-align: center;
+    }
+    .book-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      color: #f5c518;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Harry Potter</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Houses</a></li>
+        <li><a href="spells.html">Spells</a></li>
+        <li class="active"><a href="library.html">Library</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="text-center">Harry Potter Books</h1>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="book-card">
+          <img src="https://covers.openlibrary.org/b/id/7984916-L.jpg" alt="Philosopher's Stone">
+          <h4>Philosopher's Stone</h4>
+          <a href="https://www.walmart.com/search?q=harry+potter+philosopher%27s+stone+book" class="btn btn-warning" target="_blank">Buy</a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="book-card">
+          <img src="https://covers.openlibrary.org/b/id/7984917-L.jpg" alt="Chamber of Secrets">
+          <h4>Chamber of Secrets</h4>
+          <a href="https://www.walmart.com/search?q=harry+potter+chamber+of+secrets+book" class="btn btn-warning" target="_blank">Buy</a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="book-card">
+          <img src="https://covers.openlibrary.org/b/id/7984918-L.jpg" alt="Prisoner of Azkaban">
+          <h4>Prisoner of Azkaban</h4>
+          <a href="https://www.walmart.com/search?q=harry+potter+prisoner+of+azkaban+book" class="btn btn-warning" target="_blank">Buy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

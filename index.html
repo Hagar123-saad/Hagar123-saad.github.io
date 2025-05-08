@@ -1,59 +1,51 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title > Index.html </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harry Potter</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    body {
+      background: url('https://wallpaperaccess.com/full/2637581.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: rgb(187, 24, 24);
+    }
+    .card {
+      background-color: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+    }
+    h1 {
+      margin-bottom: 30px;
+      color: #f5c518;
+    }
+  </style>
 </head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Harry Potter</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="spells.html">Spells</a></li>
+        <li><a href="books.html">Books</a></li> 
+      </ul>
+    </div>
+  </nav>
 
-    <body>
+  <div class="container">
+    <h1 class="text-center">Hogwarts Houses</h1>
+    <div id="houses" class="row"></div>
+  </div>
 
- 
-   <center> <h1>Get to Know Hagar Abdellatif</h1></center>
-
-    <h3><i>Hello, I am Hagar Abdellatif, a student at CSI college studying computer science. I am in my third year at college.</i></h3>
-
-    <p>
-        Since I was young, I have always loved computers and spent a lot of time on them. I did not know anything about this field, but I entered it based on my passion for computers.
-        I find this field very interesting. I studied C++ and am still studying it. In fact, I have not found myself in any specific field in computer science yet.
-        However, I feel attracted to the web field, so I took this class.
-    </p>
-
-    <p>
-        I also love everything related to montage, photo, and video editing. I designed a logo for an Egyptian brand and find myself enjoying anything involving photos and editing.
-        So, I chose the web field to explore if my passion lies here or not.
-    </p>
-
-    <img src="safir.png" width="200" height="200" alt="safir">
-
-
-              <table border="1">
-                <tr>
-                  <th>Skills</th>
-                  <th>hobbies</th>
-                </tr>
-                <tr>
-                  <td>C++</td>
-                  <td>Photo editing</td>
-                </tr>
-                <tr>
-                  <td>Web Design</td>
-                  <td>Video production</td>
-                </tr>
-                <tr>
-                    <td>Programing</td>
-                    <td>Drawing</td>
-                  </tr>
-              </table>
-              
-
-              
-        <a href="https://github.com/Hagar123-saad/Hagar123-saad.github.io\">My Frist Lap</a>
-<hr/>
-<pre>
-   <h7>Hagar Abdelltif</h7>      <h7>02/18/25</h7> 
-</pre>  
-    <ul> <li> email: Saadhagar61@gmail.com </li> <li>Phone Number: (929)245-7629 </li>  </ul>
-    
-
-  
-    </body>
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="houses.js"></script>
+</body>
 </html>
