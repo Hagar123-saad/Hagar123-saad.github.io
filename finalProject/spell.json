@@ -1,0 +1,34 @@
+[
+    {
+      "name": "Accio",
+      "description": "Summons an object."
+    },
+    {
+      "name": "Alohomora",
+      "description": "Opens locked objects."
+    },
+    {
+      "name": "Expecto Patronum",
+      "description": "Conjures a Patronus."
+    },
+    {
+      "name": "Expelliarmus",
+      "description": "Disarms your opponent."
+    },
+    {
+      "name": "Lumos",
+      "description": "Creates light at wand tip."
+    },
+    {
+      "name": "Nox",
+      "description": "Turns off the light."
+    },
+    {
+      "name": "Stupefy",
+      "description": "Stuns your opponent."
+    },
+    {
+      "name": "Wingardium Leviosa",
+      "description": "Makes objects fly."
+    }
+  ]

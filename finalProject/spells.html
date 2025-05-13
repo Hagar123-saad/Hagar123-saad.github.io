@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Harry Potter Spells</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --maroon: #800000;
+            --dark-blue: #0A2239;
+            --parchment: #F5E7D3;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        body {
+            font-family: 'Lora', serif;
+            background-color: #f9f5f0;
+            color: #333;
+            background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--dark-blue), var(--maroon));
+            border-bottom: 2px solid var(--gold);
+            font-family: 'Cinzel', serif;
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: var(--gold) !important;
+            text-shadow: 1px 1px 2px #000;
+        }
+        
+        .spells-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 15px;
+        }
+        
+        .page-title {
+            font-family: 'Cinzel', serif;
+            color: var(--maroon);
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+            font-size: 2.5rem;
+        }
+        
+        .page-title:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+            margin: 10px auto;
+        }
+        
+        .spell-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+            border-top: 4px solid var(--gold);
+            position: relative;
+        }
+        
+        .spell-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .spell-header {
+            background: var(--dark-blue);
+            color: white;
+            padding: 15px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            position: relative;
+        }
+        
+        .spell-type {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--gold);
+            color: var(--dark-blue);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .spell-body {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .spell-effect {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .spell-icon {
+            color: var(--gold);
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-hat-wizard"></i> Harry Potter
+                </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="spells.html">Spells</a></li>
+                <li><a href="books.html">Books</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="spells-container">
+        <h1 class="page-title">Magical Spells</h1>
+        <div class="row" id="spellsContainer">
+            <!-- Spells will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        // 20 Harry Potter spells with complete data
+        const spellsData = [
+            {
+                spell: "Expelliarmus",
+                type: "Charm",
+                effect: "The Disarming Charm knocks the victim's weapon (usually a wand) out of their hands."
+            },
+            {
+                spell: "Lumos",
+                type: "Charm",
+                effect: "Creates a small light at the tip of the caster's wand, illuminating dark areas."
+            },
+            {
+                spell: "Wingardium Leviosa",
+                type: "Charm",
+                effect: "Makes objects fly or levitate when cast properly with the right wrist movement."
+            },
+            {
+                spell: "Expecto Patronum",
+                type: "Charm",
+                effect: "Conjures a Patronus, a silvery guardian that protects against Dementors."
+            },
+            {
+                spell: "Avada Kedavra",
+                type: "Curse",
+                effect: "The Killing Curse causes instant death and is one of the Unforgivable Curses."
+            },
+            {
+                spell: "Crucio",
+                type: "Curse",
+                effect: "The Cruciatus Curse inflicts intense pain on the victim (Unforgivable Curse)."
+            },
+            {
+                spell: "Imperio",
+                type: "Curse",
+                effect: "The Imperius Curse places the victim under complete control of the caster (Unforgivable Curse)."
+            },
+            {
+                spell: "Alohomora",
+                type: "Charm",
+                effect: "The Unlocking Charm opens locked doors and objects, unless magically protected."
+            },
+            {
+                spell: "Accio",
+                type: "Charm",
+                effect: "The Summoning Charm brings an object to the caster from any distance."
+            },
+            {
+                spell: "Protego",
+                type: "Charm",
+                effect: "The Shield Charm creates an invisible barrier that deflects spells and physical objects."
+            },
+            {
+                spell: "Riddikulus",
+                type: "Charm",
+                effect: "Used against Boggarts, it forces them to take a comical form to remove their power."
+            },
+            {
+                spell: "Sectumsempra",
+                type: "Curse",
+                effect: "Causes severe lacerations as if by an invisible sword (Dark Magic)."
+            },
+            {
+                spell: "Episkey",
+                type: "Healing Spell",
+                effect: "Used to heal minor injuries like broken noses or split lips."
+            },
+            {
+                spell: "Finite Incantatem",
+                type: "Counter-Spell",
+                effect: "Terminates the effect of other spells in progress."
+            },
+            {
+                spell: "Incendio",
+                type: "Conjuration",
+                effect: "Produces a jet of flames from the caster's wand."
+            },
+            {
+                spell: "Legilimens",
+                type: "Mind Magic",
+                effect: "Allows the caster to delve into another person's mind."
+            },
+            {
+                spell: "Obliviate",
+                type: "Charm",
+                effect: "The Memory Charm erases specific memories from the victim."
+            },
+            {
+                spell: "Petrificus Totalus",
+                type: "Hex",
+                effect: "The Full Body-Bind Curse renders the victim rigid and immobile."
+            },
+            {
+                spell: "Reparo",
+                type: "Charm",
+                effect: "Mends broken objects, restoring them to their original state."
+            },
+            {
+                spell: "Stupefy",
+                type: "Charm",
+                effect: "The Stunning Spell renders victims unconscious on contact."
+            }
+        ];
+
+        // Load spells when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('spellsContainer');
+            
+            container.innerHTML = spellsData.map(spell => `
+                <div class="col-md-4 col-sm-6">
+                    <div class="spell-card">
+                        <div class="spell-header">
+                            ${spell.spell}
+                            <span class="spell-type">${spell.type}</span>
+                        </div>
+                        <div class="spell-body">
+                            <p class="spell-effect">
+                                <i class="fas fa-magic spell-icon"></i>
+                                ${spell.effect}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        });
+    </script>
+</body>
+</html>

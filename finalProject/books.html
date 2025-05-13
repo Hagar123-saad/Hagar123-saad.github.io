@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Harry Potter Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5d00ff;
+            --secondary-color: #ff6b6b;
+            --dark-color: #2d3436;
+            --light-color: #f5f6fa;
+            --accent-color: #00cec9;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--dark-color);
+            border: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 0;
+        }
+        
+        .book-card {
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: white;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .book-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: contain;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .book-card .caption {
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .book-card h3 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        .book-card .btn {
+            background-color: var(--accent-color);
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .book-card .btn:hover {
+            background-color: #00a8a5;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Harry Potter</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="spells.html">Spells</a></li>
+                    <li class="active"><a href="books.html">Books</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-header">Books</h1>
+        <div class="row" id="booksContainer">
+            <!-- Books will be loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Book data (since the API doesn't provide books)
+        const booksData = [
+            {
+                title: "Harry Potter and the Philosopher's Stone",
+                year: 1997,
+                description: "Harry Potter discovers he's a wizard and begins his education at Hogwarts.",
+                image: "https://m.media-amazon.com/images/I/91wKDODkgWL._SL1500_.jpg",
+                buyLink: "https://www.amazon.com/Harry-Potter-Sorcerers-Stone-Rowling/dp/059035342X"
+            },
+            {
+                title: "Harry Potter and the Chamber of Secrets",
+                year: 1998,
+                description: "Harry returns to Hogwarts for his second year and faces new dangers.",
+                image: "https://m.media-amazon.com/images/I/918wxhKJaPL._SL1500_.jpg",
+                buyLink: "https://www.amazon.com/Harry-Potter-Chamber-Secrets-Rowling/dp/0439064872"
+            },
+            {
+                title: "Harry Potter and the Prisoner of Azkaban",
+                year: 1999,
+                description: "Harry learns about his parents' past and the truth about Sirius Black.",
+                image: "https://m.media-amazon.com/images/I/91ar+YVpLML._SL1500_.jpg",
+                buyLink: "https://www.amazon.com/Harry-Potter-Prisoner-Azkaban-Rowling/dp/0439136369"
+            },
+            {
+                title: "Harry Potter and the Goblet of Fire",
+                year: 2000,
+                description: "Harry competes in the dangerous Triwizard Tournament.",
+                image: "https://m.media-amazon.com/images/I/91-LL7OnDCL._SL1500_.jpg",
+                buyLink: "https://www.amazon.com/Harry-Potter-Goblet-Fire-Rowling/dp/0439139600"
+            },
+            {
+                title: "Harry Potter and the Order of the Phoenix",
+                year: 2003,
+                description: "Harry forms Dumbledore's Army to fight against the Ministry's interference at Hogwarts.",
+                image: "https://m.media-amazon.com/images/I/51AycDoUgBL._SY445_SX342_.jpg",
+                buyLink: "https://www.amazon.com/Harry-Potter-Order-Phoenix-Rowling/dp/0439358078"
+            },
+            {
+                title: "Harry Potter and the Half-Blood Prince",
+                year: 2005,
+                description: "Harry learns about Voldemort's past while Hogwarts becomes more dangerous.",
+                image: "https://m.media-amazon.com/images/I/41-1uUIdTFL._SY445_SX342_.jpg",
+                buyLink: "https://www.amazon.com/Harry-Potter-Half-Blood-Prince-Rowling/dp/0439785960"
+            },
+           
+            {
+                title: "The Tales of Beedle the Bard",
+                year: 2008,
+                description: "A collection of wizarding fairy tales mentioned in the Harry Potter series.",
+                image: "https://m.media-amazon.com/images/I/51XRioE+JAL._SY445_SX342_.jpg",
+                buyLink: "https://www.amazon.com/Tales-Beedle-Bard-J-K-Rowling/dp/0545128285"
+            },
+            {
+                title: "Fantastic Beasts and Where to Find Them",
+                year: 2001,
+                description: "A textbook about magical creatures in the wizarding world.",
+                image: "https://m.media-amazon.com/images/I/51f9mHNIlbL._SY445_SX342_.jpg",
+                buyLink: "https://www.amazon.com/Fantastic-Beasts-Where-Find-Them/dp/0439321603"
+            },
+            {
+                title: "Quidditch Through the Ages",
+                year: 2001,
+                description: "A guide to the history and rules of Quidditch.",
+                image: "https://m.media-amazon.com/images/I/51VuoSQwRgL._SY445_SX342_.jpg",
+                buyLink: "https://www.amazon.com/Quidditch-Through-Ages-Kennilworthy-Whisp/dp/0439321611"
+            },
+            {
+                title: "Harry Potter and the Cursed Child",
+                year: 2016,
+                description: "A play based on a story by J.K. Rowling, set 19 years after the Deathly Hallows.",
+                image: "https://m.media-amazon.com/images/I/518VhA3dH9L._SY445_SX342_.jpg",
+                buyLink: "https://www.amazon.com/Harry-Potter-Cursed-Child-Rehearsal/dp/1338099132"
+            },
+             {
+                title: "Harry Potter and the Deathly Hallows",
+                year: 2007,
+                description: "Harry, Ron, and Hermione hunt for Horcruxes while the wizarding world falls under Voldemort's control.",
+                image: "https://m.media-amazon.com/images/I/51jyI6lYi1L._SY425_.jpg",
+                buyLink: "https://www.amazon.com/Harry-Potter-Deathly-Hallows-Rowling/dp/0545010225"
+            },
+            
+        ];
+
+        // Load books when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadBooks();
+        });
+
+        // Load and display books
+        function loadBooks() {
+            const container = document.getElementById('booksContainer');
+            
+            container.innerHTML = booksData.map(book => `
+                <div class="col-md-4 col-sm-6">
+                    <div class="thumbnail book-card">
+                        <img src="${book.image}" alt="${book.title}">
+                        <div class="caption">
+                            <h3>${book.title}</h3>
+                            <p><strong>Year:</strong> ${book.year}</p>
+                            <p>${book.description}</p>
+                            <p><a href="${book.buyLink}" class="btn" target="_blank">Buy Now</a></p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

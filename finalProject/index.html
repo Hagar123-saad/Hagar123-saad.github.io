@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Harry Potter Characters</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .hero-video {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.hero-video {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-video video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+        :root {
+            --primary-color: #5d00ff;
+            --secondary-color: #ff6b6b;
+            --dark-color: #2d3436;
+            --light-color: #f5f6fa;
+            --accent-color: #00cec9;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--dark-color);
+            border: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--light-color) !important;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        
+        .navbar-nav li a {
+            color: var(--light-color) !important;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 15px 20px;
+        }
+        
+        .navbar-nav li a:hover {
+            color: var(--accent-color) !important;
+            background-color: transparent;
+        }
+        
+        .navbar-nav .active a {
+            color: var(--accent-color) !important;
+            background-color: transparent;
+        }
+        
+        .navbar-form .form-control {
+            border-radius: 20px;
+            border: none;
+            padding: 10px 15px;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+        }
+        
+        .navbar-form .form-control::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .navbar-form .btn {
+            border-radius: 20px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .navbar-form .btn:hover {
+            background-color: #00a8a5;
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            padding-top: 30px;
+            padding-bottom: 50px;
+        }
+        
+        .character-card {
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: white;
+        }
+        
+        .character-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .character-card .thumbnail {
+            border: none;
+            padding: 0;
+            margin: 0;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .character-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent-color);
+        }
+        
+        .character-card .caption {
+            padding: 20px;
+        }
+        
+        .character-card h4 {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .character-card p {
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .character-card p strong {
+            color: var(--dark-color);
+        }
+        
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-form {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            
+            .character-card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+</div>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Harry Potter</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="spells.html">Spells</a></li>
+                    <li><a href="books.html">Books</a></li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search characters..." id="searchInput">
+                    </div>
+                    <button type="button" class="btn" onclick="searchCharacter()">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="hero-video">
+        <video class="small-video" autoplay muted loop>
+            <source src="media/me.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
+
+</div>
+
+    <div class="container">
+        <div class="row" id="charactersContainer">
+        </div>
+    </div> 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            if (document.getElementById('charactersContainer')) {
+                await loadCharacters();
+            } else if (document.getElementById('spellsContainer')) {
+                await loadSpells();
+            } else if (document.getElementById('booksContainer')) {
+                await loadBooks();
+            }
+        });
+
+        const charactersData = [
+            {
+                name: "Harry Potter",
+                house: "Gryffindor",
+                description: "The main protagonist. His parents were killed by Lord Voldemort when he was a baby. He has a lightning-shaped scar on his forehead.",
+                image: "https://www.allthetests.com/quiz39/picture/pic_1649703330_1001.jpg"
+            },
+            {
+                name: "Hermione Granger",
+                house: "Gryffindor",
+                description: "One of Harry's best friends. Extremely intelligent, born to non-magical parents (Muggle-born). Always top of her class.",
+                image: "https://th.bing.com/th/id/R.c0ba2600a30390f3059e273af646b488?rik=CtMYjtH7Lo8wmw&riu=http%3a%2f%2fimages5.fanpop.com%2fimage%2fphotos%2f26700000%2fHermione-Granger-hermione-granger-26743720-960-1280.jpg&ehk=aOulpA0co%2bMN%2bPsqkQzQxT%2bXUb%2bqxMlz94vHLr9tfm8%3d&risl=&pid=ImgRaw&r=0"
+            },
+            {
+                name: "Ron Weasley",
+                house: "Gryffindor",
+                description: "Another of Harry's best friends. Comes from the Weasley family, a poor but loving magical family. Known for his humor and loyalty.",
+                image: "https://th.bing.com/th/id/R.a8e23d2d3c11f4c396ea9b2406740fd5?rik=cCHNZyqdEXJZtw&pid=ImgRaw&r=0"
+            },
+            {
+                name: "Albus Dumbledore",
+                house: "Gryffindor",
+                description: "Headmaster of Hogwarts. Considered one of the greatest wizards of all time. Wise and supportive of Harry.",
+                image: "https://th.bing.com/th/id/R.548212e8484b729f452c17f41e2c0deb?rik=QTow1J1y24oZNg&riu=http%3a%2f%2fimg3.wikia.nocookie.net%2f__cb20130124184226%2fharrypotter%2fde%2fimages%2f7%2f7d%2fAlbus_Dumbledore_R._H..jpg&ehk=%2fbGi9xDjnNSxZtMWFvbexoxXI%2fCspZLVxEVhEq0CBOQ%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"
+            },
+            {
+                name: "Lord Voldemort",
+                house: "Slytherin",
+                description: "The main antagonist of the series. Real name: Tom Marvolo Riddle. Seeks immortality and control over the wizarding world.",
+                image: "https://th.bing.com/th/id/R.2f37c3f19ea4a6b816084841f79b95d3?rik=xPHmeLbrpLmHfA&pid=ImgRaw&r=0"
+            },
+            {
+                name: "Severus Snape",
+                house: "Slytherin",
+                description: "Potions Master at Hogwarts. A mysterious character who initially appears as a villain but is later revealed to be more complex.",
+                image: "https://th.bing.com/th/id/R.ac8c7f3440ebf5a7edca255e5d074cbf?rik=hG52IhZuoAEsLA&riu=http%3a%2f%2fimages4.fanpop.com%2fimage%2fphotos%2f16100000%2fSeverus-Snape-severus-snape-16143865-1000-1000.jpg&ehk=QVCsm2tXwmLnxhxjZya2DGBWqKvP9Kns4o3KSJO7BLM%3d&risl=&pid=ImgRaw&r=0"
+            },
+            {
+                name: "Draco Malfoy",
+                house: "Slytherin",
+                description: "A student from Slytherin House, one of Harry's school rivals. Comes from a wealthy, pure-blood wizarding family.",
+                image: "https://th.bing.com/th/id/R.1ed3217f88981fed615ea4c99397507d?rik=aFUIr6syC3RlBg&riu=http%3a%2f%2fimages4.fanpop.com%2fimage%2fphotos%2f17100000%2fDraco-Malfoy-draco-malfoy-17164203-1920-2560.jpg&ehk=CBC%2fEzJElO%2fPIQGwpLWY59vA4wDtOdOoklozpiGUOHY%3d&risl=&pid=ImgRaw&r=0"
+            },
+            {
+                name: "Neville Longbottom",
+                house: "Gryffindor",
+                description: "A student in Gryffindor. Appears shy and clumsy at first, but becomes very brave in the end.",
+                image: "https://th.bing.com/th/id/OIP.GVYWxA8WEQtLzSccNTVyNgHaFj?rs=1&pid=ImgDetMain"
+            },
+            {
+                name: "Luna Lovegood",
+                house: "Ravenclaw",
+                description: "A student in Ravenclaw. Eccentric but kind-hearted and intelligent. Believes in strange creatures.",
+                image: "https://th.bing.com/th/id/R.d76004004b45827aa67c047c1473add5?rik=NsHc9lSm0xgwdg&riu=http%3a%2f%2fimages5.fanpop.com%2fimage%2fphotos%2f25500000%2fLuna-Lovegood-Wallpaper-luna-lovegood-25518100-1024-768.jpg&ehk=TuUWG1dcrG7U81ipd3WLy6QOZckbNiYlL5s3qHZPOQ0%3d&risl=&pid=ImgRaw&r=0"
+            },
+            {
+                name: "Ginny Weasley",
+                house: "Gryffindor",
+                description: "Ron's younger sister. Later becomes Harry's wife. Strong-willed and a talented Quidditch player.",
+                image: "https://th.bing.com/th/id/R.8e6b806534752d818ef7b38a62455828?rik=h2KZQhmF6PtR9Q&riu=http%3a%2f%2fimg2.wikia.nocookie.net%2f__cb20090815150257%2fharrypotter%2fimages%2ff%2ff1%2fGinny_Weasley_(HBP_promo)_2.jpg&ehk=EulxZzpjiplYh7SJdu2fYLiBimb1JQCqAbnHeilLYsY%3d&risl=&pid=ImgRaw&r=0"
+            },
+            {
+                name: "Remus Lupin",
+                house: "Gryffindor",
+                description: "Defense Against the Dark Arts professor in the third year. A werewolf, but kind and fair. Friend of Harry's parents.",
+                image: "https://th.bing.com/th/id/R.976237b53f1e95d93ae6eca6658839b4?rik=m%2bH6t%2f1hOdi6uA&pid=ImgRaw&r=0"
+            },
+            {
+                name: "Lucius Malfoy",
+                house: "Slytherin",
+                description: "Draco's father. A Death Eater who believes in pure-blood supremacy.",
+                image: "https://th.bing.com/th/id/R.43d65490933bc2f6da1a8a955147dea2?rik=ZSmQATtsrsuSjg&riu=http%3a%2f%2fimages5.fanpop.com%2fimage%2fphotos%2f25600000%2flucius-malfoy-full-size-poster-pics-lucius-malfoy-25651637-767-1024.jpg&ehk=amaD0Ugj%2fNi7pWOiJDYRoAnxN0LJHVcMc%2bu3ns0cuC8%3d&risl=&pid=ImgRaw&r=0"
+            },
+            {
+                name: "Dobby",
+                house: "None",
+                description: "A former house-elf. Helped Harry several times and saved his life. Died heroically.",
+                image: "https://th.bing.com/th/id/OIP.2BG0znMHg57zyL6uTiXCmgAAAA?rs=1&pid=ImgDetMain"
+            },
+            {
+                name: "Rubeus Hagrid",
+                house: "Gryffindor",
+                description: "Half-giant, Keeper of Keys and Grounds at Hogwarts. One of the first people to welcome Harry into the wizarding world.",
+                image: "https://th.bing.com/th/id/OIP.6Ehx0b5Dzlhs-bf7JriNlgHaIL?rs=1&pid=ImgDetMain"
+            }
+        ];
+
+        // Load and display characters
+        async function loadCharacters() {
+            const container = document.getElementById('charactersContainer');
+            
+            container.innerHTML = charactersData.map(character => `
+                <div class="col-md-3 col-sm-6 character-card" data-name="${character.name.toLowerCase()}">
+                    <div class="thumbnail">
+                        <img src="${character.image}" alt="${character.name}" style="width:100%; height:300px; object-fit:cover">
+                        <div class="caption">
+                            <h4>${character.name}</h4>
+                            <p><strong>House:</strong> ${character.house || 'Unknown'}</p>
+                            <p><small>${character.description}</small></p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Search character function
+        async function searchCharacter() {
+            const searchTerm = document.getElementById('searchInput').value.trim();
+            if (!searchTerm) {
+                // If search is empty, show all characters
+                document.querySelectorAll('.character-card').forEach(card => {
+                    card.style.display = 'block';
+                });
+                return;
+            }
+            
+            const allCards = document.querySelectorAll('.character-card');
+            let found = false;
+            
+            allCards.forEach(card => {
+                const characterName = card.getAttribute('data-name');
+                if (characterName.includes(searchTerm.toLowerCase())) {
+                    card.style.display = 'block';
+                    found = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            if (!found) {
+                const container = document.getElementById('charactersContainer');
+                const notFoundMsg = document.createElement('div');
+                notFoundMsg.className = 'col-md-12';
+                notFoundMsg.innerHTML = '<div class="alert alert-warning">No characters found matching your search.</div>';
+                container.appendChild(notFoundMsg);
+            }
+        }
+    </script>
+  <hr style="border-color: rgba(193, 79, 79, 0.3);">
+
+<footer class="text-center text-light py-3" style="background-color: rgba(227, 215, 215, 0.7); margin-top: 0;">
+  &copy; 2025 Hagar Abdellatif
+</footer>
+
+
+</body>
+</html>
